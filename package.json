@@ -11,11 +11,25 @@
     },
     "devDependencies": {
         "axios": "^0.19",
+        "bootstrap": "^4.0.0",
+        "browser-sync": "^2.18.13",
+        "browser-sync-webpack-plugin": "^1.2.0",
+        "core-js": "^2.5.1",
         "cross-env": "^7.0",
+        "dotenv": "^4.0.0",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.19",
-        "resolve-url-loader": "^3.1.0",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
+        "open-sans-all": "^0.1.2",
+        "popper.js": "^1.12",
+        "recursive-readdir": "^2.2.1",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.20.1",
+        "sass-loader": "^8.0.0",
+        "vue": "^2.5.17",
+        "vue-router": "^3.0.1",
+        "vue-template-compiler": "^2.6.10",
+        "vuex": "^3.0.1"
     }
 }
