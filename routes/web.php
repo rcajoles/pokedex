@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'api\HomeController@get_home_web');
+
+Route::get('/listing/{listing}', 'api\HomeController@get_listing_web');
+
+Route::get('/saved', 'api\HomeController@get_home_web')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');

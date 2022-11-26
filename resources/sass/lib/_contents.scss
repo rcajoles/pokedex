@@ -1,0 +1,70 @@
+html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #484848;
+    font-size: 17px;
+    margin: 0;
+  }
+  
+  .listing-container {
+    margin: 0 auto;
+    padding: 0 12px;
+
+    @media (min-width: 744px) {
+      width: 696px;
+    }
+  }
+  
+  
+  
+  .home-container {
+    margin: 0 auto;
+    padding: 0 25px;
+
+    @media (min-width: 1131px) {
+      width: 1080px;
+    }
+  }
+  
+  
+  .saved-container {
+    margin: 0 auto;
+    padding: 0 25px;
+
+    @media (min-width: 1131px) {
+      width: 1095px;
+      padding-left: 40px;
+      margin-bottom: -10px;
+    }
+  }
+  
+  
+  .login-container,
+  .register-container {
+    margin: 0 auto;
+    padding: 0 12px;
+    width: auto;
+    
+    @media (min-width: 374px) {
+      width: 350px;
+    }
+  }
+  #footer .login-container,
+  #footer .register-container {
+    margin: 0 auto;
+    padding: 0 12px;
+    width: auto;
+  }
+  
+  hr {
+    border: 0;
+    border-top: 1px solid #dce0e0;
+  }
+  
+  input[type=text] {
+    -webkit-appearance: none;
+  }
+  
