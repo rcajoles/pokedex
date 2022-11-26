@@ -4,6 +4,15 @@ import Vue from 'vue';
 import App from './components/App.vue';
 import router from './router.js';
 import store from './store';
+import Storage from 'vue-ls';
+
+const options = {
+    namespace: 'vuejs__', // key prefix
+    name: 'ls', // name variable Vue.[ls] or this.[$ls],
+    storage: 'local', // storage name session, local, memory
+};
+  
+Vue.use(Storage, options);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -38,6 +47,12 @@ import store from './store';
   el: '#app',
   render: h => h(App),
   router,
-  store
+  store,
+  mounted: () => {
+    Vue.ls.on('state.auth', function (arg) {
+      console.log('listen on state.auth');
+      console.log(arg);
+    });
+  },
 });
 

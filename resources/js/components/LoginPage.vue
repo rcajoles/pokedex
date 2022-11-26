@@ -41,10 +41,15 @@ import router from '../router';
                     Auth.login(formData)
                     .then(res => {
                         if (res.status === 200) {
-                            const loggedIn = { auth: true };
-                            window.auth_token = res.data.token;
-                            this.$store.commit('addData', {route: 'home', data: loggedIn});
-                            router.push({ path: '/'});
+                            const loggedIn = { 
+                                auth: true, 
+                                ...res.data,
+                                path: '/',
+                            };
+                            window.server_data = loggedIn;
+                            // window.csrf_token = res.data.token;
+                            this.$store.commit('addData', {route: '/', data: loggedIn});
+                            router.push({name: 'home'});
                         }
                     });
                 } catch (error) {

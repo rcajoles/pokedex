@@ -6,6 +6,11 @@
             </router-link>
             <ul class="links">
                 <li v-if="$store.state.auth">
+                    <router-link :to="{ name: 'profile' }">
+                        Profile
+                    </router-link>
+                </li>
+                <li v-if="$store.state.auth">
                     <router-link :to="{ name: 'saved' }">
                         Saved
                     </router-link>
@@ -63,6 +68,8 @@
                         //     window.csrf_token = res.data.token;
                         //     router.push({ name: 'home'});
                         // }
+                        localStorage.clear();
+                        Vue.ls.clear();
                     });
                 } catch (error) {
                     console.log(error);

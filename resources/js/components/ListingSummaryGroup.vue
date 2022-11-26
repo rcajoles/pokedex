@@ -115,4 +115,8 @@
         font-size: 1.5rem;
         cursor: pointer;
     }
+
+    .listing-carousel .controls .carousel-control:hover {
+        color: #4fc08d;
+    }
 </style>

@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 
 export default {
-    async list(params) {
+    list(params) {
         const src = 'https://pokeapi.co/api/v2/';
         const init = {
             limit: 20,
@@ -12,9 +12,15 @@ export default {
         const url_query = src + query;
 
         console.log(`url_query: ${url_query}`);
-        return await axios({
+        return axios({
             method: 'get',
             url: url_query,
+            headers: {
+                'Access-Control-Allow-Origin': `*`,
+                'Access-Control-Allow-Headers': '*',
+                'Access-Control-Allow-Credentials': true,
+                'Content-Type': 'application/json; charset=utf-8',
+            }
         });
     },
 };

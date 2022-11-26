@@ -23,6 +23,9 @@ Route::post('/register', 'api\AuthController@api_register')->name('api.register'
 Route::get('/listing/{listing}', 'api\HomeController@get_listing_api');
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', function(Request $request){
+        return response()->json(Auth::user(), 200);
+    });
     Route::get('/saved', 'api\HomeController@get_home_api');
     Route::post('/user/toggle_saved', 'api\AuthController@toggle_saved');
     Route::post('/user/toggle_disliked', 'api\AuthController@toggle_disliked');

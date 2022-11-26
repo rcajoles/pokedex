@@ -39,32 +39,41 @@
                 PokeAPI.list(intrval)
                     .then(res => {
                         if (res.status === 200) {
-                            console.log('api response: ');
-                            console.log(res);
+                            // console.log('api response: ');
+                            // console.log(res);
                             this.contentData = res.data;
                             return res.data;
                         }
                         return res;
                     })
                     .then(res => {
-                        console.log('res: ');
-                        console.log(res);
-                        console.log('filters: ');
+                        // console.log('res: ');
+                        // console.log(res);
+                        // console.log('filters: ');
                         const newArr = _.map(res.results, item => {
                                 return item.url;
                             });
-                        console.log(newArr);
-                        const P = new Pokedex();
+                        // console.log(newArr);
+                        const customOptions = {
+                            protocol: "https",
+                            hostName: "localhost:443",
+                            versionPath: "/api/v2/",
+                            cache: true,
+                            timeout: 5 * 1000, // 5s
+                            cacheImages: true
+                        };
+                        const P = new Pokedex(customOptions);
                         P.resource(newArr)
                         .then(response => {
-                            console.log('wrapper response: ');
-                            console.log(response);
+                            // console.log('wrapper response: ');
+                            // console.log(response);
                             const detailed = {
-                                listing: response
+                                listings: response,
+                                path: '/'
                             };
                             this.contentData.results = response;
                             this.$store.commit('addData', {route: 'home', data: detailed});
-                            window.server_data = response;
+                            window.server_data = detailed;
                         });
                     });
             } catch (error) {
